@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}   
+  <div class="container">
+    {% if request.session.user %}         
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'logout' %}">로그아웃</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Hello, { {{ request.session.user }} } </a>
+   </li>
+{% else %}
+    <li class="nav-item">           
+      <a class="nav-link" href="{% url 'login' %}">로그인</a>
+    </li>
+{% endif %}
+  </div>
+{% endblock %} 
